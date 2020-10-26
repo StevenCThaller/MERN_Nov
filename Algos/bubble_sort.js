@@ -44,7 +44,6 @@ function bubbleSort(array){
                 arr[i+1] = temp;
             }
         }
-        console.log(`Iteration ${counter}: ${array}`);
         counter++;
     }
 
