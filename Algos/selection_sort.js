@@ -22,14 +22,14 @@ function selectionSort(array){
     for(let start = 0; i < array.length; start++){
       // Now, given we want to find the smallest element, we'll
       // start by labeling our element at index 0 as the smallest
-      let min = 0;
+      let min = start;
 
       // But, unless we loop through to find the REAL smallest value,
       // we'll be stuck assuming index 0 is our smallest element.
       for(let i = start; i < array.length; i++){
           // At each index, we'll check to see if that element
           // is smaller than our previously deemed min number
-          if(array[min] < array[i]){
+          if(array[min] > array[i]){
               // If it is, let's set min to be that index
               min = i;                
           }

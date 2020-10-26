@@ -16,16 +16,15 @@ function bubbleSort(array){
     // sorted. In order to be able to tell that, we need some variable,
     // either numerical or boolean, to keep track. We'll use a boolean in 
     // this instance
-    let sorted = false;
+    
 
 
-    let counter = 1;
     // As mentioned previously, we're going to run our little swap session
     // until things are actually sorted, so:
-    while(sorted == false){
+    do {
         // Now, we're going to go into each loop with the assumption that
         // the array is sorted, and change it back to false if we make a swap.
-        sorted = true;
+        let sorted = true;
 
         // Now, we want to start at the 0 index, and "bubble up" to the end
 
@@ -45,8 +44,14 @@ function bubbleSort(array){
             }
         }
         counter++;
-    }
+    } while(sorted == false)
 
     // If we've broken out of the while loop, then it means the array has been sorted!
     return array;
 }
+
+
+do {
+  // thing you want to do
+}
+while(condition)
