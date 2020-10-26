@@ -14,5 +14,34 @@
 */
 
 function selectionSort(array){
-    
+    // The jist of selection sort is this:
+    // We want to find the smallest element and move it to the first index,
+    // then find the second smallest element and move it to the second index, etc. etc.
+
+    // So, our outer for loop will run through the full array
+    for(let start = 0; i < array.length; start++){
+      // Now, given we want to find the smallest element, we'll
+      // start by labeling our element at index 0 as the smallest
+      let min = 0;
+
+      // But, unless we loop through to find the REAL smallest value,
+      // we'll be stuck assuming index 0 is our smallest element.
+      for(let i = start; i < array.length; i++){
+          // At each index, we'll check to see if that element
+          // is smaller than our previously deemed min number
+          if(array[min] < array[i]){
+              // If it is, let's set min to be that index
+              min = i;                
+          }
+      }
+
+      // After looping through from 0 to our next smallest index,
+      // we'll swap that min value with the start index
+      let temp = array[min];
+      array[min] = array[end];
+      array[end] = temp;
+  }
+
+  // And finally, return the array
+  return array;
 }
