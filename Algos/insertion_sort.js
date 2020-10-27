@@ -9,17 +9,6 @@
   Space: O(1) constant
   - this sort splits the array into two portions (conceptually, not literally)
   - the left portion will become sorted, the right portion (that hasn't been iterated over yet) is unsorted
-  
-  // can shift OR swap target element until it reaches desired position
-
-  // shifting steps:
-  1. consider the first item as sorted
-  2. move to the next item
-  3. store current item in a temp var (to make this position availale to shift items)
-  4. if item to the left of current is greater than current item, shift the left item to the right
-  5. repeat step 4 as many times as needed
-  6. insert current item
-  7. move to the next item and repeat
 
   // swap steps:
   1. consider the first item as sorted
