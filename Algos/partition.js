@@ -20,7 +20,7 @@
 
 // Hoare's Partition algorithm
 function partition(array, left=0, right=array.length-1){
-    const pivIdx = Math.floor(Math.random()*((right-left+1))) + left;
+    const pivIdx = Math.floor(Math.random()*((right-left))) + left;
     const pivotVal = array[pivIdx];
 
     // The general idea of Hoare's partition algorithm is to have 2 indexes, a left and a right,
