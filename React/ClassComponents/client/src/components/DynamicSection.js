@@ -20,12 +20,12 @@ class DynamicSection extends Component {
             <>
                 <h1>{header}</h1>
                 <h2>{name}</h2>
-                <p>{text} 
+                <p>{text}  
                 {
                     haveRead ?
                     <span>You already read this</span>
                     :
-                    <button onClick={ this.readToggle }>Read</button>
+                    <button className="btn btn-primary" onClick={ this.readToggle }>Read</button>
                 }
                 </p>
             </>

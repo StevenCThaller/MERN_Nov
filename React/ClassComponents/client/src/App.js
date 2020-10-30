@@ -1,5 +1,4 @@
 import logo from './logo.svg';
-import './App.css';
 import NavBar from './components/NavBar';
 import DynamicSection from './components/DynamicSection';
 import SectionWithList from './components/SectionWithList';
@@ -18,7 +17,7 @@ function App() {
   let section3List = ["thing 1", "thing 2", "thing 3"];
 
   return (
-    <div className="App">
+    <div className="container">
       <NavBar/>
       <DynamicSection header={section1Header} text={section1Text}/>
       <DynamicSection header={section2Header} text={section2Text}/>

@@ -63,6 +63,7 @@ const Pair = new Effect("Pair Programming", 3, "power", 2);
 const RedBelt = new Unit("Red Belt Ninja", 3, 3, 4);
 HardAlgo.play(RedBelt);
 
+
 // Turn 2
 const BlackBelt = new Unit("Black Belt Ninja", 4, 5, 4);
 Unhandled.play(RedBelt);
