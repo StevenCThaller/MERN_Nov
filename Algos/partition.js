@@ -43,10 +43,6 @@ function partition(array, left=0, right=array.length-1){
                  // our left index will be at our pivot value
 }
 
-let array = [10,2,5,7,23,8,234]
-
-console.log(partition(array));
-console.log(array);
 
 module.exports = {
     partition
