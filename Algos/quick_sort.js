@@ -22,5 +22,13 @@ const { partition } = require('./partition'); // <- importing our partition func
 
 
 function quickSort(array, left=0, right=array.length-1){
-
+    if(left >= right){
+        return array;
+    }
+    const pivIdx = partition(array,left,right);
+    quickSort(array, left, pivIdx-1);
+    return quickSort(array, pivIdx+1, right);
 }
+
+
+console.log(quickSort([3,2,9,1,5,8,178,23,56,3214,7831,123,99]))
