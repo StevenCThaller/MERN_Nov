@@ -46,10 +46,10 @@ function App() {
       // 401 -> unauthorized
 
     // VERSION 2: USING axios
-    axios.get("https://pokeapi.co/api/v2/pokemon/ditto")
-      .then(response => {
-        let jsonResponse = response.data;
-        setDitto({
+    axios.get("https://pokeapi.co/api/v2/pokemon/ditto") // send a GET request to the url
+      .then(response => { // then, when the response comes back
+        let jsonResponse = response.data; //pull the json data from the response
+        setDitto({ // use it to set an object in state
           name: jsonResponse.name,
           hp: jsonResponse.stats[0].base_stat,
           attack: jsonResponse.stats[1].base_stat,
@@ -58,9 +58,9 @@ function App() {
           sp_def: jsonResponse.stats[4].base_stat,
           speed: jsonResponse.stats[5].base_stat
         });
-        setDataFetched(true);
+        setDataFetched(true); // toggle our boolean to true to render things
       })
-      .catch(err => console.log(err));
+      .catch(err => console.log(err)); // or, if an error is returned, catch it and do something with it
       
   }
 
