@@ -6,7 +6,17 @@
     and it's index.
 */
 function nonConsecutive(array){
+    const output = []; // our output array. duh.
 
+    for (let i = 1; i < array.length; i++) { // loop through the entire array (starting at index 1, since the first number doesn't count)
+        if (array[i-1] + 1 !== array[i]) { // if the current number isn't the previous number + 1
+            output.push({ // push the object into our output
+                i: i,
+                n: array[i],
+            });
+        } 
+    }
+    return output; // return it!
 }
 
 
