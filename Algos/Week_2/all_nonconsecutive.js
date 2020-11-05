@@ -10,4 +10,8 @@ function nonConsecutive(array){
 }
 
 
-nonConsecutive([1,3,4,5,7,8,9,11,14]);
+// nonConsecutive([1,3,4,5,7,8,9,11,14]) should return 
+// [   { i: 1, n: 3 }, 
+//     { i: 4, n: 7 }, 
+//     { i: 7, n: 11 }, 
+//     { i: 8, n: 14 } ]
