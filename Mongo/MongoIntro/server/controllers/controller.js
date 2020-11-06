@@ -1,4 +1,7 @@
 const { Fighter, OtherClass } = require('../models/models')
+// import our models
+const { ElectionStress } = require('../models/models');
+
 
 module.exports = {
     baseRoute: (req, res) => {
@@ -29,5 +32,22 @@ module.exports = {
         NewThing.design = data.design;
 
         res.json({ message: "success", data: NewThing });
+    },
+
+    // actual routes doing actual things
+    createStress: (req,res) => {
+        ElectionStress.create(req.body)
+            .then(data => res.json({ message: "success", data: data }))
+            .catch(err => res.json({ message: "error", data: err }))
+    },
+    
+    getStresses: (req,res) => {
+        // which collection to query from, and which operation
+        ElectionStress.find()
+            .then(data => res.json({ message: "success", data: data }))
+            .catch(err => res.json({ message: "error", data: err}));
+
+
+        // ElectionStress.findOne({ _id: req.params.id})
     }
 }

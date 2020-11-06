@@ -1,6 +1,9 @@
 const express = require('express'); // import express for our server
 const app = express(); // declaring our app as an express application
 
+// run our mongoose connection
+require('./config/mongoose.config');
+
 // To handle post request data:
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));

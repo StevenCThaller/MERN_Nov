@@ -4,7 +4,15 @@
     Bonus: Make it O(n) time
 */
 function twoSum(array, target) {
+    let values = {};
 
+    for(let i = 0; i < array.length; i++) {
+        if(values[target - array[i]] !== undefined) {
+            return [i, values[target-array[i]]];
+        }
+        values[array[i]] = i;
+    }
+    return [];
 }
 
 /* 
@@ -14,5 +22,39 @@ function twoSum(array, target) {
     Hard Bonus: make it O(n) time
 */
 function kMostFrequent(array, k){
+    const output = [];
+    const freqTable = {};
+    let maxFreq = 0;
+
+    for(let num of array) {
+        if(freqTable[num] !== undefined) {
+            freqTable[num]++;
+
+        } else {
+            freqTable[num] = 1;
+        }
+        if(freqTable[num] > maxFreq) maxFreq = freqTable[num];
+    }
+
+    const freqTableReverse = {};
+    for(let key in freqTable) {
+        if(freqTableReverse[freqTable[key]] !== undefined){
+            freqTableReverse[freqTable[key]].push(parseInt(key));
+        } else {
+            freqTableReverse[freqTable[key]] = [parseInt(key)];
+        }
+    }
     
+    
+
+    while(output.length < k && maxFreq > 0){
+        if(freqTableReverse[maxFreq] !== undefined && freqTableReverse[maxFreq].length > 0){
+            output.push(freqTableReverse[maxFreq].pop());
+        } else {
+            maxFreq--;
+        }
+    }
+
+    return output;
 }
+
