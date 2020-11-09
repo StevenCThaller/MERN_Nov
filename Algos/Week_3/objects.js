@@ -7,13 +7,22 @@
 
 let o = {
     name: "Cody",
-    email: "sthaller@codingdojo.com"
+    email: "sthaller@codingdojo.com",
+    age: 29
 }
 
 console.log(Object.entries(o));
 
 function entries(obj){
+    const output = []; // our output
 
+    for(const key in obj){ // let's loop through the key value pairs
+        if(obj.hasOwnProperty(key)){ // this will be what ignores the key value pairs from the prototype
+            output.push([key, obj[key]]); // and add the key and value to the output
+        }
+    }
+
+    return output;
 }
 
 /* 
@@ -29,5 +38,34 @@ function entries(obj){
     REMEMBER: strings need to be in quotes, numbers are not
 */
 function insert(tablename, obj){
-    
+    const kvps = entries(obj); // this is going to make it much easier to go through our keys and values
+    let columns = "";
+    let values = "";
+
+    for(const kvp of kvps){
+        if(columns == ""){ // if columns has not yet been added to
+            columns += kvp[0]; // our first column and value won't have a comma before it
+
+            // remember, numbers don't have quotes around them, strings do
+            if(isNaN(kvp[1])){ // so if the value is not a number
+                values += `"${kvp[1]}"`; // add it with quotes
+            } else {
+                values += `${kvp[1]}`; // otherwise no quotes
+            }
+        } else { // but all subsequent columns and values will have commas preceding them
+            columns += `, ${kvp[0]}`; // add the column with the comma
+
+            // remember, numbers don't have quotes around them, but strings do
+            if(isNaN(kvp[1])){ // so if the value is not a number
+                values += `, "${kvp[1]}"`; // ad it with quotes
+            } else { 
+                values += `, ${kvp[1]}`; // otherwise no quotes
+            }
+        }
+    }
+
+
+    return `INSERT INTO ${tablename} (${columns}) VALUES (${values});`;
 }
+
+console.log(insert("users", o));
